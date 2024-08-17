@@ -1,0 +1,19 @@
+!! For details on xmodmap:
+!! https://wiki.archlinux.org/index.php/Xmodmap#Modifier_keys
+!! useful commands: xmodmap, xmodmap -pm, xmodmap $HOME/.Xmodmap,
+!!     xmodmap -e "keycode ## = key1 key2 key3 key4 key5 key6 key7"
+!! where each column refers to a keysym
+!!    Key
+!!    Shift+Key
+!!    Mode_switch+Key
+!!    Mode_switch+Shift+Key
+!!    ISO_Level3_Shift+Key
+!!    ISO_Level3_Shift+Shift+Key
+!! Only the first four keysyms are really used by X servers.
+
+keycode 66 = Hyper_L NoSymbol NoSymbol NoSymbol
+clear lock
+clear mod4
+add mod4 = Hyper_L
+clear mod5
+add mod5 = Super_L
