@@ -58,8 +58,11 @@ workspace_layout default
 #border indicator on windows:
 new_window pixel 1
 
+#remove border
+#default_border none
+
 # thin borders
-#hide_edge_borders both
+hide_edge_borders both
 
 # Set inner/outer gaps
 gaps inner 4
@@ -73,7 +76,7 @@ workspace $ws1 gaps outer 6
 workspace $ws1 gaps inner 4
 
 # show window title bars (not officially supported with i3gaps)
-#default_border normal
+# default_border normal
 
 # window title alignment
 #title_align center
@@ -164,10 +167,10 @@ mode "resize" {
 # Pressing right will grow the window's width.
 # Pressing up will shrink the window's height.
 # Pressing down will grow the window's height.
-        bindsym h resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
 # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -342,8 +345,9 @@ set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Thunar"] $ws3
+assign [class="code-oss"] $ws2
+assign [class="(?i)firefox"] $ws3
+#assign [class="Thunar"] $ws3
 #assign [class="thunderbird"] $ws4
 #assign [class="TelegramDesktop"] $ws5
 
@@ -515,11 +519,12 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
+# class		        	border		bground		text		indicator	child_border
+client.focused					#9084ff	#241f31	$white		#9084ff	#9084ff
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
+client.focused_inactive		#9084ff	#241f31	$grey		#7f3fbf		#5F57A5
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -528,30 +533,31 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-		font pango: Noto Sans Regular 10
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
-#	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
-		    tray_padding 0
+	font pango: Noto Sans Regular 10
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position bottom
+	#i3bar_command i3bar --transparency
+	# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+	# reference: https://i3wm.org/docs/us£erguide.html#_tray_output
+	#tray_output primary
+	tray_padding 0
 
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
-##strip_workspace_name no
+	# When strip_workspace_numbers is set to yes,
+	# any workspace that has a name of the form
+	# “[n][:][NAME]” will display only the name.
+	strip_workspace_numbers yes
+	##strip_workspace_name no
 
-		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+	colors {
+		background #241f31
+		statusline #ffffff
+		separator #666666
+		# <colorclass>   <border> <background> <text>
+		focused_workspace  #9084ff #9084ff #ffffff
+		active_workspace   #5F57A5 #5F57A5 #ffffff
+		inactive_workspace #241f31 #241f31 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
+		binding_mode       #2f343a #900000 #ffffff
 	}
 }
 
