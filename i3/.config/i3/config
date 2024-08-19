@@ -65,21 +65,21 @@ new_window pixel 1
 hide_edge_borders both
 
 # Set inner/outer gaps
+gaps outer 6
 gaps inner 4
-gaps outer 0
 
 # smart gaps means no gaps when one window
-smart_gaps on
+#smart_gaps on
 
 # gaps for terminal worspace
-workspace $ws1 gaps outer 6
-workspace $ws1 gaps inner 4
+#workspace $ws1 gaps outer 6
+#workspace $ws1 gaps inner 4
 
 # show window title bars (not officially supported with i3gaps)
 # default_border normal
 
 # window title alignment
-#title_align center
+title_align center
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -309,7 +309,7 @@ bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 ## App shortcuts
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
-bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec --no-startup-id scrot ~/pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 ## Rofi-Beats shortcut
 bindsym $mod+equal exec --no-startup-id ~/rofi-beats/rofi-beats
@@ -454,7 +454,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-exec --no-startup-id sleep 1 && i3-msg 'workspace 1; exec xfce4-terminal;' 
+exec --no-startup-id sleep 1 && i3-msg 'workspace 1; exec xfce4-terminal -e btop; exec xfce4-terminal;' 
 exec --no-startup-id sleep 2 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 
