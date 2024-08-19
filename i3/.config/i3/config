@@ -453,8 +453,17 @@ exec --no-startup-id /usr/bin/dunst
 # `yay -S autotiling ;) (it is in AUR)
 #exec_always --no-startup-id autotiling
 
-# Autostart apps as you like
-exec --no-startup-id sleep 1 && i3-msg 'workspace 1; exec xfce4-terminal -e btop; exec xfce4-terminal;' 
+# Load the saved layout for workspace 1
+exec --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/layouts/1.json'
+
+# Start applications on workspace 1
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e lazydocker -T lzd'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e btop -T btop'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -T empty'
+
+# Start VS Code in workspace 2
+exec --no-startup-id i3-msg 'workspace 2; exec code'
+
 exec --no-startup-id sleep 2 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 

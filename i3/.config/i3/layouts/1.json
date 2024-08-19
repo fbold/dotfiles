@@ -1,0 +1,39 @@
+{
+    "layout": "splitv",
+    "orientation": "vertical",
+    "type": "con",
+    "nodes": [
+        {
+            "percent": 0.5,
+            "swallows": [
+                {
+                    "class": "Xfce4-terminal",
+                    "instance": "xfce4-terminal",
+                    "title": "lzd"
+                }
+            ],
+            "type": "con"
+        },
+        {
+            "percent": 0.5,
+            "swallows": [
+                {
+                    "class": "Xfce4-terminal",
+                    "instance": "xfce4-terminal",
+                    "title": "btop"
+                }
+            ],
+            "type": "con"
+        }
+    ]
+}
+{
+    "swallows": [
+        {
+            "class": "Xfce4-terminal",
+            "instance": "xfce4-terminal",
+            "title": "empty"
+        }
+    ],
+    "type": "con"
+}
