@@ -10,6 +10,7 @@ alias la="ls -a"
 alias grep='grep --color=auto'
 alias sd="sudo systemctl start docker.service"
 alias lzd=lazydocker
+alias confi3="vim ~/.dotfiles/i3/.config/i3/config"
 
 # load promp, which changes what the actual prompt line looks like
 fpath=($ZDOTDIR/prompts $fpath)

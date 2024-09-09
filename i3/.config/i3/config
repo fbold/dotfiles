@@ -345,8 +345,8 @@ set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
-assign [class="code-oss"] $ws2
-assign [class="(?i)firefox"] $ws3
+assign [class="code-oss"] $ws3
+assign [class="(?i)firefox"] $ws4
 #assign [class="Thunar"] $ws3
 #assign [class="thunderbird"] $ws4
 #assign [class="TelegramDesktop"] $ws5
@@ -459,10 +459,10 @@ exec --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/layouts/1.j
 # Start applications on workspace 1
 exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e lazydocker -T lzd'
 exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e btop -T btop'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -T empty'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -x zsh -c 'neofetch; zsh' -T empty'
 
-# Start VS Code in workspace 2
-exec --no-startup-id i3-msg 'workspace 2; exec code'
+# Start VS Code in workspace 3
+exec --no-startup-id i3-msg 'workspace 3; exec code'
 
 exec --no-startup-id sleep 2 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
@@ -493,6 +493,7 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Thunar" instance="thunar"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
