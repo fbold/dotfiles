@@ -1,0 +1,8 @@
+
+alias ls='ls -a --color=auto'
+alias la="ls -a"
+alias grep='grep --color=auto'
+alias sd="sudo systemctl start docker.service"
+alias lzd=lazydocker
+alias confi3="vim ~/.dotfiles/i3/.config/i3/config"
+alias cmatrixh="cmatrix -M '🪐 welcome home 🪐' -C blue" 
