@@ -464,7 +464,7 @@ exec --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/layouts/1.j
 # Start applications on workspace 1
 exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e lazydocker -T lzd'
 exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e btop -T btop'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -H -e "bash -c \"cmatrixh; zsh\""  -T empty'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e cmatrix -T empty'
 
 # Start VS Code in workspace 3
 exec --no-startup-id i3-msg 'workspace 3; exec code'
