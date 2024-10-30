@@ -350,6 +350,7 @@ set $ws10 "10"
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
+assign [class="obsidian"] $ws2
 assign [class="code-oss"] $ws3
 assign [class="(?i)firefox"] $ws4
 #assign [class="Thunar"] $ws3
@@ -468,6 +469,10 @@ exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e cmat
 
 # Start VS Code in workspace 3
 exec --no-startup-id i3-msg 'workspace 3; exec code'
+
+# Start Obsidian in workspace 2
+exec --no-startup-id i3-msg 'workspace 2; exec obsidian'
+
 
 exec --no-startup-id sleep 2 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
