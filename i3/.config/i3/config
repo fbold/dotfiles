@@ -38,6 +38,10 @@ set $super Mod5
 # load in config for remapping caps to super and escape
 exec_always --no-startup-id ~/.config/remap/remap-caps.sh
 
+# start udiskie, which runs in the background and will
+# detect external drives and allow you to mount them from the tray
+exec_always --no-startup-id udiskie &
+
 
 #####################
 # workspace layout: #
@@ -59,10 +63,13 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+#new_window pixel 1
+
+#border
+#default_border pixel 1
 
 #remove border
-#default_border none
+default_border none
 
 # thin borders
 hide_edge_borders both
@@ -195,7 +202,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id xfce4-terminal
+bindsym $mod+Return exec --no-startup-id alacritty 
 
 # kill focused window
 bindsym $mod+q kill
@@ -205,9 +212,9 @@ bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
 
 # Lock the system
 # lock with a picture:
-#bindsym $mod+l exec --no-startup-id i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
+bindsym $mod+numbersign exec --no-startup-id light-locker-command -l 
 # lock by blurring the screen:
-bindsym $mod+numbersign exec --no-startup-id ~/.config/i3/scripts/blur-lock
+# bindsym $mod+numbersign exec --no-startup-id ~/.config/i3/scripts/blur-lock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -225,8 +232,12 @@ bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
 
 # change focus
 bindsym $mod+h focus left
@@ -287,8 +298,10 @@ bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 # use meta keys showing osc using dunst
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+#bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+#bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # gradular volume control
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
@@ -391,7 +404,7 @@ assign [class="(?i)firefox"] $ws4
 #exec_always --no-startup-id picom -b
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -427,7 +440,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
 # keyboard will be handled elsewhere
-exec --no-startup-id ~/.fehbg
+exec --no-startup-id ~/.config/.fehbg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -439,6 +452,8 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # https://wiki.archlinux.org/title/Session_lock#xautolock
 #exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
+# screen locking with light-locker 
+exec_always --no-startup-id "light-locker --lock-on-suspend --late-locking &"
 
 # xscreensaver
 # https://www.jwz.org/xscreensaver
@@ -463,9 +478,9 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/layouts/1.json'
 
 # Start applications on workspace 1
-exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e lazydocker -T lzd'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e btop -T btop'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec xfce4-terminal -e cmatrix -T empty'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec alacritty -e lazydocker -T lzd'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec alacritty -e btop -T btop'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1; exec alacritty -e cmatrix -T empty'
 
 # Start VS Code in workspace 3
 exec --no-startup-id i3-msg 'workspace 3; exec code'
@@ -540,8 +555,8 @@ set $yellowbrown	#e1b700
 
 # define colors for windows:
 # class		        	border		bground		text		indicator	child_border
-client.focused					#9084ff	#241f31	$white		#9084ff	#9084ff
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
+client.focused			#9084ff		#241f31		$white		#9084ff		#9084ff
+client.unfocused	    	#241f31		$darkblue	$grey		$darkgrey	#241f31
 client.focused_inactive		#9084ff	#241f31	$grey		#7f3fbf		#5F57A5
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
@@ -553,10 +568,10 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-	font pango: Noto Sans Regular 10
+	font pango: Noto Sans Regular 8
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position bottom
-	#i3bar_command i3bar --transparency
+	i3bar_command i3bar --transparency
 	# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 	# reference: https://i3wm.org/docs/us£erguide.html#_tray_output
 	#tray_output primary
@@ -569,7 +584,7 @@ bar {
 	##strip_workspace_name no
 
 	colors {
-		background #241f31
+		background #241f31d4
 		statusline #ffffff
 		separator #666666
 		# <colorclass>   <border> <background> <text>
@@ -618,8 +633,9 @@ bar {
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+d exec --no-startup-id dmenu_run 
+#rofi -modi drun -show drun \
+#		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi

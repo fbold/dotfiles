@@ -7,8 +7,8 @@
             "percent": 0.5,
             "swallows": [
                 {
-                    "class": "Xfce4-terminal",
-                    "instance": "xfce4-terminal",
+                    "class": "Alacritty",
+                    "instance": "alacritty",
                     "title": "lzd"
                 }
             ],
@@ -18,8 +18,8 @@
             "percent": 0.5,
             "swallows": [
                 {
-                    "class": "Xfce4-terminal",
-                    "instance": "xfce4-terminal",
+                    "class": "Alacritty",
+                    "instance": "alacritty",
                     "title": "btop"
                 }
             ],
@@ -30,8 +30,8 @@
 {
     "swallows": [
         {
-            "class": "Xfce4-terminal",
-            "instance": "xfce4-terminal",
+            "class": "Alacritty",
+            "instance": "alacritty",
             "title": "empty"
         }
     ],

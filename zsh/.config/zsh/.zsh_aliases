@@ -4,5 +4,11 @@ alias la="ls -a"
 alias grep='grep --color=auto'
 alias sd="sudo systemctl start docker.service"
 alias lzd=lazydocker
-alias confi3="vim ~/.dotfiles/i3/.config/i3/config"
 alias cmatrixh="cmatrix -M '🪐 welcome home 🪐' -C blue" 
+
+alias shutdown="sudo systemctl poweroff"
+
+
+# config shortcuts
+alias confi3="nvim ~/.dotfiles/i3/.config/i3/config"
+alias confnvim="nvim ~/.config/nvim/init.lua"
