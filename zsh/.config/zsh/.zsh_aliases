@@ -19,3 +19,6 @@ alias confzsh="nvim ~/.config/zsh/.zshrc"
 
 # re-source
 alias src="source ~/.config/zsh/.zshrc"
+
+# projects
+alias gbun="nvim ~/documents/gatherbun/"
