@@ -83,6 +83,8 @@ vim.opt.scrolloff = 10
 -- Map <leader>y to copying to the system register
 vim.keymap.set("v", "<leader>y", '"+y')
 
+-- Open last buffer
+vim.keymap.set("n", "<leader>l", ":b#<CR>", { desc = "Open last used buffer" })
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
