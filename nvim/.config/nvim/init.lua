@@ -65,7 +65,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Set global tab width
 vim.opt.tabstop = 2 -- Set tab width to 2 spaces
-vim.opt.shiftwidth = 1 -- Set indentation width to 2 spaces
+vim.opt.shiftwidth = 2 -- Set indentation width to 2 spaces
 vim.opt.expandtab = true -- Use spaces instead of tabs
 
 -- Preview substitutions live, as you type!
