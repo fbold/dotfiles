@@ -21,3 +21,7 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
+
+# add ~/bin to path so can run my own installed apps, like appimages
+[ -d "$HOME/bin" ] && export PATH="$PATH:$HOME/bin"
+[ -d "$HOME/go/bin" ] && export PATH="$PATH:$HOME/go/bin"
