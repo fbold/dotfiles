@@ -220,7 +220,7 @@ bindcode $mod+48 exec --no-startup-id ~/.config/i3/scripts/keymaps.sh && pkill -
 
 # Lock the system
 # lock with a picture:
-bindsym $mod+numbersign exec --no-startup-id light-locker-command -l 
+bindcode $mod+51 exec --no-startup-id light-locker-command -l 
 # lock by blurring the screen:
 # bindsym $mod+numbersign exec --no-startup-id ~/.config/i3/scripts/blur-lock
 
