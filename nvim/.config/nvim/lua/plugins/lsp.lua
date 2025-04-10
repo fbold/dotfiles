@@ -1,30 +1,4 @@
 return {
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		config = function()
-			local cmp = require("cmp")
-
-			cmp.setup({
-				sources = {
-					{ name = "nvim_lsp" },
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-					["<C-n>"] = cmp.mapping.select_next_item(),
-					["<C-u>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				snippet = {
-					expand = function(args)
-						vim.snippet.expand(args.body)
-					end,
-				},
-			})
-		end,
-	},
-
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
@@ -73,7 +47,7 @@ return {
 					vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
 					vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 					vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-					vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+					vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 					vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 					vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 				end,
@@ -88,12 +62,31 @@ return {
 
 			mason_lspconfig.setup_handlers({
 				function(server_name)
+					local server_settings = require("plugins.lsp.servers")[server_name] or {}
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
 						-- on_attach = require("plugins.lsp.on_attach").on_attach,
-						settings = require("plugins.lsp.servers")[server_name],
-						filetypes = (require("plugins.lsp.servers")[server_name] or {}).filetypes,
+						settings = server_settings,
+						filetypes = server_settings.filetypes,
+						-- on_attach = function(client, bufnr)
+						-- 	local filename = vim.api.nvim_buf_get_name(bufnr)
+						-- 	if filename:match("%.glsl.js$") then
+						-- 		client.stop() -- Stop tsserver if file ends with .glsl.js
+						-- 		return
+						-- 	end
+						-- end,
 					})
+				end,
+			})
+
+			-- fucking finally this works. so this stupid file type can be used instead
+			-- I am not cut out for this nvim config stuff
+			-- like wtf... lsp stuff is insane. mason and lspconfig and all the shit
+			-- it doesn't make sense, I'm sorry
+			vim.api.nvim_create_autocmd({ "LspAttach", "BufRead", "BufNewFile" }, {
+				pattern = "*.glsl.js",
+				callback = function()
+					vim.bo.filetype = "glsl"
 				end,
 			})
 
@@ -114,4 +107,19 @@ return {
 			})
 		end,
 	},
+
+	-- GLSL Config
+	-- {
+	-- 	"tikhomirov/vim-glsl",
+	-- 	config = function()
+	-- 		require("glsl").setup({})
+	-- 		vim.api.nvim_create_autocmd({
+	-- 			{ "BufNewFile", "BufRead" },
+	-- 			pattern = "*.glsl.js",
+	-- 			callback = function()
+	-- 				vim.filetype.add("glsl")
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- },
 }

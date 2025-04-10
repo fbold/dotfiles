@@ -4,7 +4,7 @@
 -- Map <leader>y to copying to the system register
 vim.keymap.set("v", "<leader>y", '"+y')
 -- Map <leader>p to pasting from the system register
-vim.keymap.set("v", "<leader>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 -- lets you move selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

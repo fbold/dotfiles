@@ -51,7 +51,7 @@ vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 200
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -66,8 +66,8 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Set global tab width
 vim.opt.tabstop = 4 -- Set tab width to 2 spaces
 vim.opt.shiftwidth = 4 -- Set indentation width to 2 spaces
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.smartindent = true
+vim.opt.expandtab = false -- Use spaces instead of tabs
+vim.opt.smartindent = false
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
