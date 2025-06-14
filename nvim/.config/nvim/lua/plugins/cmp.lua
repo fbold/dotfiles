@@ -34,6 +34,9 @@ return {
 		--  into multiple repos for maintenance purposes.
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
+
+		-- lorem ipsum autocomplete
+		"dnnr1/lorem-ipsum.nvim",
 	},
 	config = function()
 		-- See `:help cmp`
@@ -56,6 +59,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
+				{ name = "lorem_ipsum" },
 			},
 			completion = { completeopt = "menu,menuone,noinsert", keyword_length = 0 },
 			mapping = cmp.mapping.preset.insert({
