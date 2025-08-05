@@ -6,12 +6,16 @@ compinit
 # End of lines added by compinstall
 
 # load promp, which changes what the actual prompt line looks like
-fpath=($ZDOTDIR/prompts $fpath)
-autoload -Uz prompt_purification_setup && prompt_purification_setup
+#fpath=($ZDOTDIR/prompts $fpath)
+#autoload -Uz prompt_purification_setup && prompt_purification_setup
 
 # add startship (https://starship.rs/)
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# allow ctrl+arrow
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 if [ -f ~/.config/zsh/.zsh_aliases ]; then
 . ~/.config/zsh/.zsh_aliases
