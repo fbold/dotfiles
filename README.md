@@ -8,3 +8,9 @@ stow <package name>
 
 ### dirs
 The dirs package contains the xdg config which sets the default directory names for the home directory. I've renamed them in the config to the same as their default names but with lowercase. In order for this config to work these home directories needs to be renames wherever this config is used. When I get around to making an install script I need to make this functionality a part of it.
+
+### Dependencies
+- hyprland
+- keyd
+- hyprpaper
+- wayland
