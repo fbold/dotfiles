@@ -13,6 +13,9 @@ compinit
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
+# ls colors generated with vivid
+export LS_COLORS="$(vivid generate gruvbox-dark)"
+
 # allow ctrl+arrow
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word

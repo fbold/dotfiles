@@ -15,3 +15,5 @@ The dirs package contains the xdg config which sets the default directory names 
 - hyprpaper
 - keyd
 - kitty
+- vivid (github.com/sharkdp/vivid)
+
