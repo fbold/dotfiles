@@ -16,4 +16,5 @@ The dirs package contains the xdg config which sets the default directory names 
 - keyd
 - kitty
 - vivid (github.com/sharkdp/vivid)
+- rofi
 
