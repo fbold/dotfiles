@@ -3,74 +3,86 @@
  * ----------------------------------------------------- */
 
 * {
-	min-height: 12px;
+	min-height: 10px;
 	min-width: 0;
 	font-family: "IBM Plex Mono", "DejaVuSansM Nerd Font";
 	font-size: 12px;
 	font-weight: 400;
+	color: #F7DFCA;
 }
 
 window#waybar {
 	background: transparent;
+	color: #F7DFCA;
 }
 
 .modules-right * {
-	margin-left: 10px;
+	margin: 0 0 0 5px;
 }
 
 #workspaces {
 	border: 2px solid #4a5d46;
-	border-radius: 5px;
+	border-radius: 0px;
 	background: #312320;
+	padding: 0 5px;
 }
 
 #workspaces button {
 	background: #312320;
-	padding: 5px;
+	padding: 1px 3px;
 	border: 1px #ffffff;
 	background: transparent;
-	color: white;
+	border-bottom: 2px solid #4a5d46;
+	border-radius: 0;
+}
+
+#workspaces button.empty {
+	border-bottom: 2px solid #312320;
 }
 
 #workspaces button.active {
-	border-bottom: 3px solid #cc5500;
+	border-bottom: 2px solid #cc5500;
 	border-radius: 0;
 	font-weight: 600;
 }
 
 #workspaces button.focused {
-	border-bottom: 3px solid #cc5500;
+	border-bottom: 2px solid #cc5500;
 }
 
 #hardware {
 	border: 2px solid #4a5d46;
-	border-radius: 5px;
+	border-radius: 0px;
 	background: #312320;
-	padding: 0 8px;
+	padding: 0 6px;
+}
+
+#network {
+	margin-left: 0;
+}
+
+#pulseaudio {
+	margin-left: 0;
 }
 
 #control {
 	border: 2px solid #4a5d46;
-	border-radius: 5px;
+	border-radius: 0px;
 	background: #312320;
-	padding: 0 8px;
+	padding: 0 6px;
 }
 
 #clock {
 	border: 2px solid #4a5d46;
-	border-radius: 5px;
+	border-radius: 0px;
 	background: #312320;
-	padding: 0 8px;
+	padding: 0 9px;
 }
 
 tooltip {
-	border-radius: 12px;
-	background-color: #ffffff;
-	opacity: 0.9;
+	border-radius: 0px;
+	background-color: #312320;
 	padding: 10px;
 	margin: 0px;
-}
-
-tooltip label {
-	color: #000000;
+	border: 2px solid #4a5d46;
 }
