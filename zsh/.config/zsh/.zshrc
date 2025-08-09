@@ -18,6 +18,7 @@ export LS_COLORS="$(vivid generate gruvbox-dark)"
 
 # default editor
 export EDITOR=nvim
+export BROWSER=firefox
 
 # allow ctrl+arrow
 bindkey "^[[1;5C" forward-word
