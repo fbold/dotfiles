@@ -42,6 +42,18 @@ return {
 
 				astro = { "prettier" },
 			},
+			format_after_save = { lsp_fallback = true },
+			formatters = {
+				prettier = {
+					prepend_args = function()
+						return {
+							"--config-precedence",
+							"prefer-file",
+							"--with-node-modules",
+						}
+					end,
+				},
+			},
 		},
 	},
 }
