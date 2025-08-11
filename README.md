@@ -1,3 +1,7 @@
+## fbold dotfiles
+These are a bit of a mess right now bcause I've transitioned to wayland+hyprland+waybar from xorg+i3+i3blocks.
+TODO: write a setup script that stows all appropriate directories, installs dependencies, symlinks what needs to be symlinked.
+
 ### How Manage .dotfiles
 This folder should be cloned into the home directory.
 It uses stow to keep all the configs (separated by stow packages) in one place.
