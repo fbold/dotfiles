@@ -52,14 +52,6 @@
 			"hyprland/language"
 		]
 	},
-	//// Rofi Application Launcher
-	//"custom/appmenu": {
-	//"format": "Apps",
-	//"tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
-	//"on-click": "rofi -show drun -replace",
-	//"on-click-right": "~/.config/ml4w/scripts/keybindings.sh",
-	//"tooltip": false
-	//},
 	"keyboard-state": {
 		"numlock": true,
 		"capslock": true,
@@ -79,16 +71,16 @@
 		"format-alt": "{:%Y-%m-%d}"
 	},
 	"cpu": {
-		"format": "C {usage}%",
+		"format": "[C {usage}%]",
 		"on-click": "kitty -e btop"
 	},
 	"memory": {
-		"format": "M {}%",
+		"format": "[M {}%]",
 		"on-click": "kitty -e btop"
 	},
 	"disk": {
 		"interval": 30,
-		"format": "D {percentage_used}%",
+		"format": "[D {percentage_used}%]",
 		"path": "/",
 		"on-click": "kitty -e btop"
 	},
@@ -145,8 +137,8 @@
 			"car": "",
 			"default": [
 				"",
-				" ",
-				" "
+				"",
+				""
 			]
 		},
 		"on-click": "pavucontrol"
@@ -172,5 +164,4 @@
 		},
 		"on-click-right": "hyprlock"
 	}
-}
 }
