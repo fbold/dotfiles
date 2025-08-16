@@ -35,7 +35,17 @@ return {
 	glsl_analyzer = {
 		filetypes = { "glsl", "glsl.js", ".glsl.js" },
 	},
-	gopls = {},
+	gopls = {
+		cmd = { "gopls", "-remote=auto" },
+		-- attach to new filetypes too.
+		filetypes = { "go", "gomod", "gowork", "gotmpl", "gohtmltmpl", "gotexttmpl" },
+		settings = {
+			gopls = {
+				-- see ftdetect/go.lua.
+				["build.templateExtensions"] = { "gohtml", "html", "gotmpl", "tmpl" },
+			},
+		},
+	},
 
 	yamlls = {
 		cmd = { "yaml-language-server", "--stdio" },

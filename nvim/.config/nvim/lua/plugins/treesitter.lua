@@ -11,6 +11,7 @@ return { -- Highlight, edit, and navigate code
 			"javascript",
 			"jsdoc",
 			"go",
+			"gotmpl",
 			"html",
 			"css",
 			"lua",
