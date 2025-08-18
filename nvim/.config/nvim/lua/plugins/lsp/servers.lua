@@ -31,7 +31,15 @@ return {
 		filetypes = { "vim" },
 	},
 	-- tsserver = {},
-	ts_ls = {},
+	-- ts_ls = {},
+	vtsls = {
+		settings = {
+			typescript = {
+				tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib", -- use project’s TS version
+			},
+		},
+	},
+	phpactor = {},
 	glsl_analyzer = {
 		filetypes = { "glsl", "glsl.js", ".glsl.js" },
 	},
