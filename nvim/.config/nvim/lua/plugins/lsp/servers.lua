@@ -40,6 +40,8 @@ return {
 		},
 	},
 	phpactor = {},
+	-- intelephense = {},
+	-- laravel_ls = {},
 	glsl_analyzer = {
 		filetypes = { "glsl", "glsl.js", ".glsl.js" },
 	},
