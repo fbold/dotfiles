@@ -9,7 +9,9 @@
 	"modules-left": [
 		"hyprland/workspaces",
 	],
-	"modules-center": [],
+	"modules-center": [
+		// "custom/trackie"
+	],
 	"modules-right": [
 		"group/hardware",
 		"group/control",
@@ -23,11 +25,6 @@
 		"active-only": false,
 		"all-outputs": true,
 		"format": "[{name}]",
-		// "format-icons": {
-		// 	"urgent": "",
-		// 	"active": "",
-		// 	"default": " "
-		// },
 		"persistent-workspaces": {
 			"*": 5
 		}
@@ -35,6 +32,9 @@
 	"hyprland/window": {
 		"separate-outputs": true
 	},
+	//
+	//
+	// HARDWARE
 	"group/hardware": {
 		"orientation": "inherit",
 		"modules": [
@@ -43,49 +43,6 @@
 			"cpu",
 			"memory",
 		]
-	},
-	"group/control": {
-		"orientation": "inherit",
-		"modules": [
-			"pulseaudio",
-			"keyboard-state",
-			"hyprland/language"
-		]
-	},
-	"keyboard-state": {
-		"numlock": true,
-		"capslock": true,
-		"format": "{icon}{name}",
-		"format-icons": {
-			"locked": " ",
-			"unlocked": " "
-		},
-	},
-	"tray": {
-		// "icon-size": 21,
-		"spacing": 10
-	},
-	"clock": {
-		// "timezone": "America/New_York",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y-%m-%d}"
-	},
-	"cpu": {
-		"format": "[C {usage}%]",
-		"on-click": "kitty -e btop"
-	},
-	"memory": {
-		"format": "[M {}%]",
-		"on-click": "kitty -e btop"
-	},
-	"disk": {
-		"interval": 30,
-		"format": "[D {percentage_used}%]",
-		"path": "/",
-		"on-click": "kitty -e btop"
-	},
-	"hyprland/language": {
-		"format": "󰌌 [{short}]"
 	},
 	"network": {
 		"format": "{ifname}",
@@ -100,24 +57,29 @@
 		//"on-click":
 		//"on-click-right":
 	},
-	"battery": {
-		"states": {
-			// "good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon} {capacity}%",
-		"format-charging": "⚡︎{capacity}%",
-		"format-plugged": " {capacity}%",
-		"format-alt": "{icon} {time}",
-		// "format-good": "", // An empty format will hide the module
-		// "format-full": "",
-		"format-icons": [
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
+	"disk": {
+		"interval": 30,
+		"format": "[D {percentage_used}%]",
+		"path": "/",
+		"on-click": "kitty -e btop"
+	},
+	"cpu": {
+		"format": "[C {usage}%]",
+		"on-click": "kitty -e btop"
+	},
+	"memory": {
+		"format": "[M {}%]",
+		"on-click": "kitty -e btop"
+	},
+	//
+	//
+	// CONTROL
+	"group/control": {
+		"orientation": "inherit",
+		"modules": [
+			"pulseaudio",
+			"keyboard-state",
+			"hyprland/language"
 		]
 	},
 	"pulseaudio": {
@@ -143,6 +105,51 @@
 		},
 		"on-click": "pavucontrol"
 	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": "{icon}{name}",
+		"format-icons": {
+			"locked": " ",
+			"unlocked": " "
+		},
+	},
+	"hyprland/language": {
+		"format": "󰌌 [{short}]"
+	},
+	//
+	//
+	// MISC
+	"clock": {
+		// "timezone": "America/New_York",
+		"format": "{:%Y-%m-%d %H:%M}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"tray": {
+		// "icon-size": 21,
+		"spacing": 10
+	},
+	"battery": {
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "⚡︎{capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} {time}",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
 	"bluetooth": {
 		"format-disabled": "",
 		"format-off": "",
@@ -163,5 +170,14 @@
 			"deactivated": " "
 		},
 		"on-click-right": "hyprlock"
+	},
+	//
+	//
+	// CUSTOM
+	"custom/trackie": {
+		"exec": "$HOME/.config/waybar/custom/trackie.sh",
+		"on-click": "trackie status && trackie stop || trackie start mm",
+		"return-type": "json",
+		"interval": 10
 	}
 }
