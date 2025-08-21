@@ -10,11 +10,9 @@ alias shutdown="sudo systemctl poweroff"
 
 
 # config shortcuts
-alias addalias="nvim ~/.config/zsh/.zsh_aliases"
-alias confi3="nvim ~/.dotfiles/i3/.config/i3/config"
-alias confnvim="nvim ~/.config/nvim/init.lua"
-alias confblocks="nvim ~/.config/i3/i3blocks.conf"
-alias confzsh="nvim ~/.config/zsh/.zshrc"
+alias als="nvim ~/.config/zsh/.zsh_aliases"
+alias cnvim="cd ~/.config/nvim/ && nvim"
+alias czsh="cd ~/.config/zsh/ && nvim"
 
 
 # re-source
@@ -22,3 +20,7 @@ alias src="source ~/.config/zsh/.zshrc"
 
 # projects
 alias gbun="nvim ~/documents/gatherbun/"
+
+# work
+alias mm="cd ~/documents/work/modelmole/ED-demo/"
+alias sail="sh $([ -f sail ] && echo sail || echo vendor/bin/sail)"
