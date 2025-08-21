@@ -35,14 +35,63 @@
 	//
 	//
 	// HARDWARE
+	"group/control": {
+		"orientation": "inherit",
+		"modules": [
+			"pulseaudio",
+			"keyboard-state",
+			"hyprland/language"
+		]
+	},
+	"keyboard-state": {
+		"numlock": true,
+		"capslock": true,
+		"format": "{icon}{name}",
+		"format-icons": {
+			"locked": " ",
+			"unlocked": " "
+		},
+	},
+	"tray": {
+		// "icon-size": 21,
+		"spacing": 10
+	},
+	"clock": {
+		// "timezone": "America/New_York",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
 	"group/hardware": {
 		"orientation": "inherit",
 		"modules": [
 			"network",
-			"disk",
+			// "disk",
+			"temperature",
 			"cpu",
 			"memory",
 		]
+	},
+	"temperature": {
+		"critical-threshold": 50,
+		"format": "[T {temperatureC} °C]",
+		"tooltip": false
+	},
+	"cpu": {
+		"format": "[C {usage}%]",
+		"on-click": "kitty -e btop"
+	},
+	"memory": {
+		"format": "[M {}%]",
+		"on-click": "kitty -e btop"
+	},
+	"disk": {
+		"interval": 30,
+		"format": "[D {percentage_used}%]",
+		"path": "/",
+		"on-click": "kitty -e btop"
+	},
+	"hyprland/language": {
+		"format": "󰌌 [{short}]"
 	},
 	"network": {
 		"format": "{ifname}",
