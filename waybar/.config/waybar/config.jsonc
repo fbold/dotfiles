@@ -9,9 +9,9 @@
 	"modules-left": [
 		"hyprland/workspaces",
 	],
-	"modules-center": [
-		// "custom/trackie"
-	],
+	// "modules-center": [
+	// 	// "custom/trackie"
+	// ],
 	"modules-right": [
 		"group/hardware",
 		"group/control",
@@ -68,7 +68,7 @@
 			// "disk",
 			"temperature",
 			"cpu",
-			"memory",
+			"memory"
 		]
 	},
 	"temperature": {

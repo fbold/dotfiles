@@ -22,4 +22,5 @@ The dirs package contains the xdg config which sets the default directory names 
 - vivid (github.com/sharkdp/vivid)
 - ~~rofi~~
 - fuzzel (this replaced rofi)
+- wl-clipboard
 
