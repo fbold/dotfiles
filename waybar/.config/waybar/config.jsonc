@@ -35,32 +35,6 @@
 	//
 	//
 	// HARDWARE
-	"group/control": {
-		"orientation": "inherit",
-		"modules": [
-			"pulseaudio",
-			"keyboard-state",
-			"hyprland/language"
-		]
-	},
-	"keyboard-state": {
-		"numlock": true,
-		"capslock": true,
-		"format": "{icon}{name}",
-		"format-icons": {
-			"locked": " ",
-			"unlocked": " "
-		},
-	},
-	"tray": {
-		// "icon-size": 21,
-		"spacing": 10
-	},
-	"clock": {
-		// "timezone": "America/New_York",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y-%m-%d}"
-	},
 	"group/hardware": {
 		"orientation": "inherit",
 		"modules": [
@@ -72,16 +46,16 @@
 		]
 	},
 	"temperature": {
-		"critical-threshold": 50,
-		"format": "[T {temperatureC} °C]",
+		"critical-threshold": 80,
+		"format": "[{temperatureC}°C |",
 		"tooltip": false
 	},
 	"cpu": {
-		"format": "[C {usage}%]",
+		"format": "C {usage}% |",
 		"on-click": "kitty -e btop"
 	},
 	"memory": {
-		"format": "[M {}%]",
+		"format": "M {}%]",
 		"on-click": "kitty -e btop"
 	},
 	"disk": {
@@ -89,9 +63,6 @@
 		"format": "[D {percentage_used}%]",
 		"path": "/",
 		"on-click": "kitty -e btop"
-	},
-	"hyprland/language": {
-		"format": "󰌌 [{short}]"
 	},
 	"network": {
 		"format": "{ifname}",
@@ -105,20 +76,6 @@
 		"max-length": 50,
 		//"on-click":
 		//"on-click-right":
-	},
-	"disk": {
-		"interval": 30,
-		"format": "[D {percentage_used}%]",
-		"path": "/",
-		"on-click": "kitty -e btop"
-	},
-	"cpu": {
-		"format": "[C {usage}%]",
-		"on-click": "kitty -e btop"
-	},
-	"memory": {
-		"format": "[M {}%]",
-		"on-click": "kitty -e btop"
 	},
 	//
 	//
@@ -164,14 +121,14 @@
 		},
 	},
 	"hyprland/language": {
-		"format": "󰌌 [{short}]"
+		"format": "[{short}]"
 	},
 	//
 	//
 	// MISC
 	"clock": {
 		// "timezone": "America/New_York",
-		"format": "{:%Y-%m-%d %H:%M}",
+		"format": "{:%d-%m-%Y %H:%M}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "{:%Y-%m-%d}"
 	},
