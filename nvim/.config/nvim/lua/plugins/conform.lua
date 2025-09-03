@@ -42,6 +42,7 @@ return {
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
 				astro = { "prettier" },
+				-- php = { "pint" },
 			},
 			format_after_save = { lsp_fallback = true },
 			formatters = {
