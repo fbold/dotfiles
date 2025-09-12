@@ -14,10 +14,10 @@
 	// 	// "custom/trackie"
 	// ],
 	"modules-right": [
+		"tray",
 		"group/hardware",
 		"group/control",
 		"battery",
-		"tray",
 		"clock",
 	],
 	// MODULES
