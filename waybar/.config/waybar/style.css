@@ -43,23 +43,20 @@ window#waybar {
 #workspaces button {
 	color: @text;
 	background: #312320;
-	padding: 0px 2px 0px 2px;
+	padding: 0px 2px;
 	background: transparent;
 	border-bottom: 2px solid #cc5500;
 	border-radius: 0;
 }
 
 #workspaces button.empty {
-	padding: 0px 2px;
-	border: 0;
+	border-bottom: 2px solid @bg;
 }
 
 #workspaces button.active {
-	padding: 0px 2px;
 	background: #cc5500;
 	color: #f4d4b8;
 	border-bottom: 2px solid #cc5500;
-	font-weight: 600;
 }
 
 #workspaces button.focused {
