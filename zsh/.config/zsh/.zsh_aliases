@@ -13,6 +13,8 @@ alias shutdown="sudo systemctl poweroff"
 alias als="nvim ~/.config/zsh/.zsh_aliases"
 alias cnvim="cd ~/.config/nvim/ && nvim"
 alias czsh="cd ~/.config/zsh/ && nvim"
+alias chypr="cd ~/.config/hypr/ && nvim"
+alias cbar="cd ~/.config/waybar/ && nvim"
 
 
 # re-source
