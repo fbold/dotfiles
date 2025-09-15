@@ -40,6 +40,10 @@ window#waybar {
 	padding: 0 5px;
 }
 
+#workspaces {
+	padding: 0px;
+}
+
 #workspaces button {
 	color: @text;
 	background: #312320;
