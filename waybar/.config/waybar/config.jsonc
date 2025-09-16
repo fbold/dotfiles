@@ -16,6 +16,7 @@
 	"modules-right": [
 		"tray",
 		"group/hardware",
+		"network",
 		"group/control",
 		"battery",
 		"clock",
@@ -39,7 +40,6 @@
 	"group/hardware": {
 		"orientation": "inherit",
 		"modules": [
-			"network",
 			// "disk",
 			"temperature",
 			"cpu",
@@ -48,7 +48,7 @@
 	},
 	"temperature": {
 		"critical-threshold": 80,
-		"format": "[{temperatureC}°C |",
+		"format": "{temperatureC}°C |",
 		"tooltip": false
 	},
 	"cpu": {
@@ -56,7 +56,7 @@
 		"on-click": "kitty -e btop"
 	},
 	"memory": {
-		"format": "M {}%]",
+		"format": "M {}%",
 		"on-click": "kitty -e btop"
 	},
 	"disk": {
