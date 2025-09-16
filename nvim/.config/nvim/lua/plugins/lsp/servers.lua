@@ -39,6 +39,9 @@ return {
 			},
 		},
 	},
+	-- tailwindcss = {
+	-- 	filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	-- },
 	phpactor = {},
 	-- intelephense = {},
 	-- laravel_ls = {},
