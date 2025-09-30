@@ -80,3 +80,11 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- folding - set it to expr then use treesitter expression to fold according to syntax. za to toggle fold
+vim.opt.foldmethod = "expr"
+vim.schedule(function()
+	vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+end)
+-- by default new buffer opens with no folds
+vim.opt.foldlevelstart = 99
