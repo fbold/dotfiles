@@ -46,6 +46,7 @@ return {
 					astro = { "prettier" },
 					css = { "prettierd", "prettier", stop_after_first = true },
 					php = { "pint" },
+					templ = { "templ" },
 				},
 				format_after_save = { lsp_fallback = true },
 				formatters = {

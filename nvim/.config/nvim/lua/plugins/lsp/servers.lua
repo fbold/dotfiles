@@ -49,16 +49,18 @@ return {
 		filetypes = { "glsl", "glsl.js", ".glsl.js" },
 	},
 	gopls = {
-		cmd = { "gopls", "-remote=auto" },
+		-- cmd = { "gopls", "-remote=auto" },
 		-- attach to new filetypes too.
-		filetypes = { "go", "gomod", "gowork", "gotmpl", "gohtmltmpl", "gotexttmpl" },
-		settings = {
-			gopls = {
-				-- see ftdetect/go.lua.
-				["build.templateExtensions"] = { "gohtml", "html", "gotmpl", "tmpl" },
-			},
-		},
+		-- filetypes = { "go", "gomod", "gowork" },
+		-- settings = {
+		-- 	gopls = {
+		-- 		-- see ftdetect/go.lua.
+		-- 		["build.templateExtensions"] = { "gohtml", "html", "gotmpl", "tmpl" },
+		-- 	},
+		-- },
 	},
+
+	templ = {},
 
 	yamlls = {
 		cmd = { "yaml-language-server", "--stdio" },
