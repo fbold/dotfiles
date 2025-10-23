@@ -4,7 +4,6 @@ alias la="ls -a"
 alias grep='grep --color=auto'
 alias sd="sudo systemctl start docker.service"
 alias lzd=lazydocker
-alias cmatrixh="cmatrix -M '🪐 welcome home 🪐' -C blue" 
 
 alias shutdown="sudo systemctl poweroff"
 
@@ -22,6 +21,7 @@ alias src="source ~/.config/zsh/.zshrc"
 
 # projects
 alias gbun="nvim ~/documents/gatherbun/"
+alias fut="cd ~/documents/fbold/futile.me/"
 
 # work
 alias mm="cd ~/documents/work/modelmole/ED-demo/"
