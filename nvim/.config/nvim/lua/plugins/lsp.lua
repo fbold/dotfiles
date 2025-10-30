@@ -64,19 +64,21 @@ return {
 			mason_lspconfig.setup_handlers({
 				function(server_name)
 					local server_settings = require("plugins.lsp.servers")[server_name] or {}
-					vim.lsp.config(server_name).setup({
-						capabilities = capabilities,
-						-- on_attach = require("plugins.lsp.on_attach").on_attach,
-						settings = server_settings,
-						filetypes = server_settings.filetypes,
-						-- on_attach = function(client, bufnr)
-						-- 	local filename = vim.api.nvim_buf_get_name(bufnr)
-						-- 	if filename:match("%.glsl.js$") then
-						-- 		client.stop() -- Stop tsserver if file ends with .glsl.js
-						-- 		return
-						-- 	end
-						-- end,
-					})
+					vim.lsp.enable(server_name)
+
+					-- require("lspconfig")[server_name].setup({
+					-- 	capabilities = capabilities,
+					-- 	-- on_attach = require("plugins.lsp.on_attach").on_attach,
+					-- 	settings = server_settings,
+					-- 	filetypes = server_settings.filetypes,
+					-- 	-- on_attach = function(client, bufnr)
+					-- 	-- 	local filename = vim.api.nvim_buf_get_name(bufnr)
+					-- 	-- 	if filename:match("%.glsl.js$") then
+					-- 	-- 		client.stop() -- Stop tsserver if file ends with .glsl.js
+					-- 	-- 		return
+					-- 	-- 	end
+					-- 	-- end,
+					-- })
 				end,
 			})
 
