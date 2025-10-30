@@ -22,6 +22,7 @@ alias src="source ~/.config/zsh/.zshrc"
 # projects
 alias gbun="nvim ~/documents/gatherbun/"
 alias fut="cd ~/documents/fbold/futile.me/"
+alias fe="cd ~/documents/work/fileeaters.com/"
 
 # work
 alias mm="cd ~/documents/work/modelmole/ED-demo/"
